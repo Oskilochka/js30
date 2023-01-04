@@ -64,8 +64,9 @@
     if (e.propertyName === "transform") this.classList.remove("pressedKey");
   }
 
-  const keys = document.querySelectorAll(`.key`);
+  const keys = document.querySelectorAll(".key");
   keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
 </script>
 </body>
 </html>

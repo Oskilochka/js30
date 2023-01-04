@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 2 | Clock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>JS Simple Clock</h2>
+    <div class="clock">
+        <div class="clock-inner">
+            <div class="hand hours"></div>
+            <div class="hand minutes"></div>
+            <div class="hand seconds"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const secondHand = document.querySelector('.seconds')
+  const minutesHand = document.querySelector('.minutes')
+  const hoursHand = document.querySelector('.hours')
+
+  function setDate() {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const secondsDegrees = (seconds / 60) * 360 + 90;
+
+    const minutes = now.getMinutes();
+    const minutesDegrees = (minutes / 60) * 360 + 90;
+
+    const hours = now.getHours();
+    const hoursDegrees = (hours / 12) * 360 + 90;
+
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`
+    minutesHand.style.transform = `rotate(${minutesDegrees}deg)`
+    hoursHand.style.transform = `rotate(${hoursDegrees}deg)`
+  }
+
+  setInterval(setDate, 1000);
+
+</script>
+</body>
+</html>
