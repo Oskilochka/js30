@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 3 | CSS Tricks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="container-inner">
+        <div class="clock-inner">
+            <div class="controls">
+                <label for="spacing">Spacing: </label>
+                <input type="range" id="spacing" name="spacing" min="5" max="100" value="5" data-sizing="px">
+
+                <label for="blur">Blur: </label>
+                <input type="range" id="blur" name="blur" min="0" max="20" value="0" data-sizing="px">
+
+                <label for="color">Base color: </label>
+                <input type="color" id="color" name="color">
+            </div>
+            <img src="img.jpg" alt="picture" />
+        </div>
+    </div>
+</div>
+
+<script>
+
+  const inputs = document.querySelectorAll(".controls input");
+
+  function handleUpdate() {
+    const sufix = this.dataset.sizing || "";
+    console.log(this, "here");
+    document.documentElement.style.setProperty(`--${this.name}`, this.value + sufix);
+  }
+
+  inputs.forEach(input => input.addEventListener("change", handleUpdate));
+  inputs.forEach(input => input.addEventListener("mousemove", handleUpdate));
+
+</script>
+</body>
+</html>
