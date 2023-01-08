@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="panels">
+    <div class="panel first">
+        <p>Glory</p>
+        <p>to</p>
+        <p>Ukraine</p>
+    </div>
+    <div class="panel second">
+        <p>Russia</p>
+        <p>is a</p>
+        <p>terrorist state</p>
+    </div>
+    <div class="panel third">
+        <p>Stop</p>
+        <p>this</p>
+        <p>war</p>
+    </div>
+    <div class="panel fourth">
+        <p>Be</p>
+        <p>brave as</p>
+        <p>ukrainian</p>
+    </div>
+</div>
+</body>
+
+<script>
+  const panels = document.querySelectorAll(".panel");
+
+  function toggleOpen() {
+    this.classList.toggle("open");
+  }
+
+  function toggleActive(e) {
+    e.propertyName.includes("flex") && this.classList.toggle("active");
+  }
+
+  panels.forEach(panel => panel.addEventListener("click", toggleOpen));
+  panels.forEach(panel => panel.addEventListener("transitionend", toggleActive));
+</script>
+</html>

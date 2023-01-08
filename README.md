@@ -1,6 +1,7 @@
 # JS 30
 
-Day 1 ***Drum Kit***
-Day 2 ***Simple JS Clock***
-Day 3 ***Some CSS Tricks***
-Day 4 ***Arrays***
+1. ***Drum Kit***
+2. ***Simple JS Clock***
+3. ***Some CSS Tricks***
+4. ***Arrays***
+5. ***Gallery***
