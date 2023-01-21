@@ -28,15 +28,22 @@
     });
   }
 
+  function formatPopulation(number) {
+    return number.toString()
+      .split(/(?=(?:\d{3})+(?:\.|$))/g)
+      .join(",");
+  }
+
   function displayMatches() {
     suggestions.innerHTML = findMatches(this.value, cities)
       ?.map(place => {
         const regex = new RegExp(this.value, "gi");
-        const cityName = place?.city?.replace(regex, `<span class="cityName">{this.value}</span>`);
+        const cityName = place?.city?.replace(regex, `<span class="cityName">${this.value}</span>`);
+        const stateName = place?.state?.replace(regex, `<span class="cityName">${this.value}</span>`);
 
         return `<li>
-        <span className={"name"}>${place?.city}, ${place.state}</span>
-        <span className={"population"}>${place?.population}</span>
+        <span className={"name"}>${cityName}, ${stateName}</span>
+        <span className={"population"}>${formatPopulation(place?.population)}</span>
       </li>`;
       })
       .join("");
